@@ -29,12 +29,15 @@
 @class CQMFloatingFrameView;
 @class CQMFloatingNavigationBar;
 
+@protocol CQMFloatingControllerDelegate <NSObject>
+- (void)floatingMaskControlDidResize:(CQMFloatingFrameView *)frameView;
+@end
 
 @interface CQMFloatingController : UIViewController
 
 @property (nonatomic) CGSize landscapeFrameSize;
 @property (nonatomic) CGSize portraitFrameSize;
-@property (nonatomic, retain) UIColor *frameColor;
+@property (nonatomic, strong) UIColor *frameColor;
 
 + (CQMFloatingController*)sharedFloatingController;
 

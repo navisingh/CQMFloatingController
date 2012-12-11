@@ -24,33 +24,18 @@
 //
 
 #import "CQMFloatingMaskControl.h"
+#import "CQMFloatingController.h"
 
-
-@implementation CQMFloatingMaskControl {
-@private
-	id resizeDelegate_;
-}
-
-
-- (void)dealloc {
-	[self setResizeDelegate:nil];
-	[super dealloc];
-}
-
+@implementation CQMFloatingMaskControl
 
 #pragma mark -
 #pragma mark Property
 
-
-@synthesize resizeDelegate = resizeDelegate_;
-
-
 - (void)setFrame:(CGRect)frame {
 	[super setFrame:frame];
 	
-	SEL selector = @selector(floatingMaskControlDidResize:);
-	if ([self.resizeDelegate respondsToSelector:selector]) {
-		[self.resizeDelegate performSelector:selector
+	if ([self.resizeDelegate respondsToSelector:@selector(floatingMaskControlDidResize:)]) {
+		[self.resizeDelegate performSelector:@selector(floatingMaskControlDidResize:)
 								  withObject:self];
 	}
 }

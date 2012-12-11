@@ -23,11 +23,12 @@
 // SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
+@protocol CQMFloatingControllerDelegate;
 
 @interface CQMFloatingMaskControl : UIControl
 
-@property (nonatomic, assign) id resizeDelegate;
+@property (nonatomic, weak) id<CQMFloatingControllerDelegate> resizeDelegate;
 
 @end

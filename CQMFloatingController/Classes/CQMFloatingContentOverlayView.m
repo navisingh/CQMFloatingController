@@ -32,13 +32,11 @@
 #define kShadowBlur          2.0f
 #define kShadowColor         [UIColor colorWithWhite:0 alpha:0.8f]
 
+@interface CQMFloatingContentOverlayView()
 
-@implementation CQMFloatingContentOverlayView {
-@private
-	CGFloat cornerRadius_;
-	UIColor *edgeColor_;
-}
+@end
 
+@implementation CQMFloatingContentOverlayView
 
 - (id)init {
 	if (self = [super init]) {
@@ -48,11 +46,6 @@
 	return self;
 }
 
-
-- (void)dealloc {
-	[edgeColor_ release];
-	[super dealloc];
-}
 
 
 #pragma mark -
@@ -64,23 +57,13 @@
 }
 
 
-- (CGFloat)cornerRadius {
-	return cornerRadius_;
-}
 - (void)setCornerRadius:(CGFloat)cornerRadius {
-	cornerRadius_ = cornerRadius;
+	_cornerRadius = cornerRadius;
 	[self setNeedsDisplay];
 }
 
-
-- (UIColor*)edgeColor {
-	return edgeColor_;
-}
 - (void)setEdgeColor:(UIColor*)edgeColor {
-	if (edgeColor_ != edgeColor) {
-		[edgeColor_ release];
-		edgeColor_ = [edgeColor retain];
-	}
+    _edgeColor = edgeColor;
 	[self setNeedsDisplay];
 }
 
